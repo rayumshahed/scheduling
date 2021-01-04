@@ -1,5 +1,9 @@
-from django.http import HttpResponse
+from django.shortcuts import render
+from django.views import View
 
 
-def index(request):
-    return HttpResponse(index.html)
+class Index(View):
+    template = 'index.html'
+
+    def get(self, request):
+        return render(request, self.template)
